@@ -2,22 +2,22 @@ const request = require('supertest');
 
 const app = require('../src/app');
 
-describe('GET /api/v1', () => {
+describe('GET /api', () => {
   it('responds with a json message', (done) => {
     request(app)
-      .get('/api/v1')
+      .get('/api')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, {
-        message: 'API - 👋🌎🌍🌏'
+        message: 'API WELCOME - 👋🌎🌍🌏'
       }, done);
   });
 });
 
-describe('GET /api/v1/emojis', () => {
+describe('GET /api/emo', () => {
   it('responds with a json message', (done) => {
     request(app)
-      .get('/api/v1/emojis')
+      .get('/api/emo')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, ['😀', '😳', '🙄'], done);
